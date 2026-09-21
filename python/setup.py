@@ -3,16 +3,19 @@ from setuptools import setup
 
 import os
 
+# PJ13 packaging (2026-09): upper bounds = latest version verified to install and
+# reproduce the 2021 snapshot (see test/pj13_diff/); pandas<2.1 is forced by scprep 1.2.3,
+# numpy<2 because pandas 2.0.x wheels are built against numpy 1.x.
 install_requires = [
-    "numpy>=1.14.0",
-    "scipy>=1.1.0",
-    "matplotlib",
-    "scikit-learn>=0.19.1",
-    "future",
-    "tasklogger>=1.0.0",
-    "graphtools>=1.4.0",
-    "pandas>=0.25",
-    "scprep>=1.0",
+    "numpy>=1.14.0,<1.27",
+    "scipy>=1.1.0,<1.18",
+    "matplotlib<3.12",
+    "scikit-learn>=0.19.1,<1.10",
+    "future<2",
+    "tasklogger>=1.0.0,<2",
+    "graphtools>=1.4.0,<3",
+    "pandas>=0.25,<2.1",
+    "scprep>=1.0,<2",
 ]
 
 test_requires = ["nose2", "anndata", "coverage", "coveralls"]
